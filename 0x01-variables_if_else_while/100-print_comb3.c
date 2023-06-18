@@ -22,8 +22,10 @@ int main(void)
 		putchar((n % 10) + '0');
 		putchar((m % 10) + '0');
 		if (m != 9 || n != 8)
+		{
 		putchar(',');
 		putchar(' ');
+		}
 	}
 	}
 	}
