@@ -13,15 +13,17 @@ int main(void)
 	long int sum;
 	int i;
 
+	sum = a + b;
+
 	printf("1, 2,");
 	for (i = 1; i < 49; i++)
 	{
-		sum = a + b;
 		printf("%ld, ", sum);
 		a = b;
 		b = sum;
+		sum = a + b;
 	}
-	printf("\n");
+	printf("%ld\n", sum);
 	return (0);
 
 }
