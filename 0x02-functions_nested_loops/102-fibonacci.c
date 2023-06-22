@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main -- fabonacci numbers.
+ * main -- first 50 fabonacci numbers.
  *
  * Return: always 0.
  */
@@ -16,7 +16,7 @@ int main(void)
 	sum = a + b;
 
 	printf("1, 2,");
-	for (i = 1; i < 49; i++)
+	for (i = 3; i < 50; i++)
 	{
 		printf("%ld, ", sum);
 		a = b;
