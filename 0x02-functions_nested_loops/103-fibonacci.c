@@ -17,7 +17,7 @@ int main(void)
 	fab = a + b;
 	sum = 2;
 
-	for (i = 0; fab < 400000; i++)
+	for (i = 0; fab < 4000000; i++)
 	{
 		a = b;
 		b = fab;
