@@ -3,11 +3,11 @@
 /**
  * more_numbers - function that prints numbers from 0 to 14 10 times.
  *
- * Return: 0 always success.
+ * Return: void function.
  */
 void more_numbers(void)
 {
-	int n, c, i;
+	int n, c;
 
 	for (n = 0; n < 10; n++)
 	{
@@ -17,7 +17,7 @@ void more_numbers(void)
 		{
 		_putchar(c / 10 + '0');
 		}
-		_putchar(i + '0');
+		_putchar(c + '0');
 		}
 	}
 	_putchar('\n');
