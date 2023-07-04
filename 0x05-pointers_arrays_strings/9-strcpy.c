@@ -24,6 +24,8 @@ char *_strcpy(char *dest, char *src)
 	{
 		if (size != 0)
 		dest[i] = src[i];
+		else
+			break;
 	}
 
 	dest[(size + 1)] = '\0';
