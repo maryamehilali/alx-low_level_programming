@@ -18,7 +18,7 @@ int is_prime_number(int n)
  * prime_search - that verify if the input integer is divisible by i,
  * while i different then 1.
  * @n: input number
- * @i: is n can be divided by i 
+ * @i: is n can be divided by i
  * Return: 0 or 1.
  */
 
