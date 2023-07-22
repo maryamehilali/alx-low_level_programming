@@ -7,8 +7,7 @@
  */
 int op_add(int a, int b)
 {
-	int sum = a + b;
-	return (sum);
+	return (a + b);
 }
 /**
  * op_sub - returns the difference of a and b.
