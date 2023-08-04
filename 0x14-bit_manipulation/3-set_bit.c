@@ -8,7 +8,7 @@
  * @index: input index of the bit.
  * Return: 1 or -1.
  */
-int set_bit(unsigned long int *n, unsigned int index);
+int set_bit(unsigned long int *n, unsigned int index)
 {
 	int bit;
 	unsigned long int num;
