@@ -27,7 +27,7 @@ int main(int argc, char **argv)
 	{
 		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
 		exit(98); }
-	dest_file = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	dest_file = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
 	while (n_read == BUFFER_SIZE)
 	{
 		n_write = write(dest_file, buffer, BUFFER_SIZE);
