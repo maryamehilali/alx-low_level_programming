@@ -21,15 +21,17 @@ int main(int argc, char **argv)
 		dprintf(2, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	do {
-		source_file = open(argv[1], O_RDONLY);
-		n_read = read(source_file, buffer, BUFFER_SIZE);
-		if (n_read == -1 || source_file == -1)
-		{
-			dprintf(2, "Error: Can't read from file %s\n", argv[1]);
-			exit(98);
-		}
-		dest_file = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
+
+	source_file = open(argv[1], O_RDONLY);
+	n_read = read(source_file, buffer, BUFFER_SIZE);
+	if (n_read == -1 || source_file == -1)
+	{
+		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
+	dest_file = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
+	while (n_read == BUFFER_SIZE)
+	{
 		n_write = write(dest_file, buffer, BUFFER_SIZE);
 		if (n_write == -1 || dest_file == -1)
 		{
@@ -37,7 +39,6 @@ int main(int argc, char **argv)
 			exit(99);
 		}
 	}
-	while (n_read == BUFFER_SIZE)
 	n_write = write(dest_file, buffer, n_read);
 	close(source_file);
 	close(dest_file);
