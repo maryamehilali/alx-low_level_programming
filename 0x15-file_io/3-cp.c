@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 		{ dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 			exit(98); }
 	}
-	n_write = write(dest_file, buffer, BUFFER_SIZE);
+	n_write = write(dest_file, buffer, n_read);
 	n_close1 = close(source_file);
 	n_close2 = close(dest_file);
 	if (n_close1 == -1)
