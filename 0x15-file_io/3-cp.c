@@ -35,7 +35,13 @@ int main(int argc, char **argv)
 			exit(99); }
 		n_read = read(source_file, buffer, BUFFER_SIZE);
 	}
+	if (n_read == -1 || source_file == -1)
+	{ dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98); }
 	n_write = write(dest_file, buffer, BUFFER_SIZE);
+	if (n_write == -1 || dest_file == -1)
+	{ dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		exit(99); }
 	n_close1 = close(source_file);
 	n_close2 = close(dest_file);
 	if (n_close1 == -1)
