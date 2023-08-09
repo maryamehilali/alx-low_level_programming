@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 		exit(97); }
 	buffer = malloc(sizeof(char) * BUFFER_SIZE);
 	if (buffer == NULL)
-		return (-1);
+		return (0);
 	source_file = open(argv[1], O_RDONLY);
 	n_read = read(source_file, buffer, BUFFER_SIZE);
 	if (n_read == -1 || source_file == -1)
