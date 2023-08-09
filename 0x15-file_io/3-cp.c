@@ -25,11 +25,11 @@ int main(int argc, char **argv)
 	if (n_read == -1 || source_file == -1)
 	{ dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98); }
-	dest_file = open(argv[2], O_CREAT | O_RDWR | O_TRUNC | O_APPEND, 00664);
+	dest_file = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 00664);
 	while (n_read == BUFFER_SIZE)
 	{
 		n_write = write(dest_file, buffer, n_read);
-		if (n_write == -1 || n_write != n_read || dest_file == -1)
+		if (n_write == -1 || dest_file == -1)
 		{ dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99); }
 		n_read = read(source_file, buffer, n_read);
@@ -38,7 +38,7 @@ int main(int argc, char **argv)
 			exit(98); }
 	}
 	n_write = write(dest_file, buffer, n_read);
-	if (n_write == -1 || n_write != n_read)
+	if (n_write == -1)
 	{ dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99); }
 	n_close1 = close(source_file);
