@@ -15,11 +15,14 @@ int main(int argc, char **argv)
 {
 	int n_read, n_write, source_file, dest_file;
 	int n_close1, n_close2;
-	char buffer[BUFFER_SIZE];
+	char *buffer;
 
 	if (argc != 3)
 	{ dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97); }
+	buffer = malloc(sizeof(char) * BUFFER_SIZE);
+	if (buffer == NULL)
+		return (-1);
 	source_file = open(argv[1], O_RDONLY);
 	n_read = read(source_file, buffer, BUFFER_SIZE);
 	if (n_read == -1 || source_file == -1)
