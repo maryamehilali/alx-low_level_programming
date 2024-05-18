@@ -1,10 +1,12 @@
 NAME = school
-all: $(NAME)
 CC=gcc
 SRC = main.c school.c
-OBJ = main.o school.o
-OBJ:SRC
-	$(CC) -c -o $@ $<
+OBJ =  $(SRC:%.c=%.o)
 
-$(NAME): $(OBJ)
-	$(CC) $^ -o $@
+# Rule for creating the executable from objects
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+# Rule for creating the object files individually
+%.o: %.c
+	$(CC)	-c -o $@ $<
